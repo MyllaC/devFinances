@@ -1,0 +1,9 @@
+* {
+  margin: 0; /*espaçamento entre um elemento e outro*/
+  padding: 0;
+  box-sizing: border-box; /* tamanho da box começa a contar depois da border */
+}
+
+body {
+  background: #f0f2f5;
+}
