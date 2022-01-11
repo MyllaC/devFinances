@@ -1,3 +1,4 @@
+/* ======== GLOBAL ========= */
 * {
   margin: 0; /*espaçamento entre um elemento e outro*/
   padding: 0;
@@ -6,4 +7,17 @@
 
 body {
   background: #f0f2f5;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ========= HEADER =========== */
+header {
+  background: #2d4a22;
+  padding: 2rem 0 10rem; /* top right bottom left */
+  text-align: center;
+}
+
+#logo {
+  color: #fff;
+  font-weight: 100;
 }
