@@ -10,6 +10,11 @@
   box-sizing: border-box; /* tamanho da box começa a contar depois da border */
 }
 
+/*Respomsividade*/
+html {
+  font-size: 93.75%; /* equivale a 15px, 100% equivale a 16px */
+}
+
 body {
   background: #f0f2f5;
   font-family: 'Poppins', sans-serif;
@@ -40,6 +45,22 @@ h2 {
   margin-bottom: 0.8rem;
   color: var(--dark-blue);
   font-weight: normal;
+}
+
+/* ========= LINKS AND BUTTONS =========== */
+
+a {
+  color: #49aa26;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3dd705;
+}
+
+.button.new {
+  display: inline-block; /* para conseguir aplicar o margin-bottom */
+  margin-bottom: 0.8rem;
 }
 
 /* ========= HEADER =========== */
@@ -104,6 +125,11 @@ header {
 table thead tr th:first-child,
 table tbody tr td:first-child {
   border-radius: 0.25rem 0 0 0.25rem;
+}
+
+table thead tr th:last-child,
+table tbody tr td:last-child {
+  border-radius: 0 0.25rem 0.25rem 0;
 }
 
 table th {
