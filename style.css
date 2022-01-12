@@ -10,7 +10,6 @@
   box-sizing: border-box; /* tamanho da box começa a contar depois da border */
 }
 
-/*Respomsividade*/
 html {
   font-size: 93.75%; /* equivale a 15px, 100% equivale a 16px */
 }
@@ -117,9 +116,11 @@ header {
 /* ======== TABLE ========= */
 
 #data-table {
+  display: block;
   width: 100%;
   border-spacing: 0 0.5rem; /*0 para as laterais e 0.5 nas bordas top e bottom */
   color: #969cb3;
+  overflow: auto; /* é oque está transbordando da caixa, usa o auto para ter a barra de rolagem */
 }
 
 table thead tr th:first-child,
@@ -171,4 +172,18 @@ footer {
   padding: 4rem 0 2rem;
   color: var(--dark-blue);
   opacity: 0.6;
+}
+
+/* ======== RESPONSIVE ========= */
+/* qd o min do width for de 800px vai ser adicionado a sequencia de css que está dentro das chaves */
+@media (min-width: 800px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  #balance {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /*largura de cada coluna que eu quero, podemos escrever assim tbm: repeat(3, 1fr)*/
+    gap: 2rem;
+  }
 }
