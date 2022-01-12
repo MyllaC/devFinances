@@ -17,31 +17,42 @@
   </head>
   <body>
     <header>
-      <h1 id="logo">dev.finance$</h1>
+      <img src="./assets/logo.svg" alt="Logo Dev Finance" />
     </header>
 
     <main class="container">
       <section id="balance">
-        <h2>Balanço</h2>
+        <h2 class="sr-only">Balanço</h2>
 
         <div class="card">
-          <h3>Entradas</h3>
+          <h3>
+            <span>Entradas</span>
+            <!-- Usa a tag span para deixar os elementos em linha -->
+            <img src="/assets/income.svg" alt="Imagem de entradas" />
+          </h3>
           <p>R$ 5.000,00</p>
         </div>
 
         <div class="card">
-          <h3>Saídas</h3>
+          <h3>
+            <span>Saídas</span>
+            <img src="/assets/expense.svg" alt="Imagem de saídas" />
+          </h3>
+
           <p>2.000,00</p>
         </div>
 
         <div class="card total">
-          <h3>Total</h3>
+          <h3>
+            <span>Total</span>
+            <img src="/assets/total.svg" alt="Imagem do total" />
+          </h3>
           <p>3.000,00</p>
         </div>
       </section>
 
       <section id="transaction">
-        <h2>Transações</h2>
+        <h2 class="sr-only">Transações</h2>
 
         <table id="data-table">
           <thead>

@@ -15,6 +15,19 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.sr-only {
+  /* comandos para esconder os h2 para deixar somente para screen reader */
+  position: absolute; /*relativo ao pai que ele está, como se fosse para outra camada*/
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .container {
   width: min(90vw, 800px);
   /* pega os dois valores e deixa sempre o menor entre eles */
@@ -64,6 +77,9 @@ header {
 .card h3 {
   font-weight: normal;
   font-size: 1rem;
+  display: flex; /* deixa os elementos dentro da caixa um ao lado do outro */
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card p {
