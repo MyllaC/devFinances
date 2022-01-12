@@ -236,6 +236,8 @@ td.expense {
   padding: 2.4rem;
   width: 90%;
   max-width: 500px;
+  position: relative;
+  z-index: 999;
 }
 
 /* ======== FORM ========= */
