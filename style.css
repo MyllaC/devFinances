@@ -115,12 +115,16 @@ header {
 
 /* ======== TABLE ========= */
 
-#data-table {
+#transaction {
   display: block;
+  width: 100%;
+  overflow: auto; /* é oque está transbordando da caixa, usa o auto para ter a barra de rolagem */
+}
+
+#data-table {
   width: 100%;
   border-spacing: 0 0.5rem; /*0 para as laterais e 0.5 nas bordas top e bottom */
   color: #969cb3;
-  overflow: auto; /* é oque está transbordando da caixa, usa o auto para ter a barra de rolagem */
 }
 
 table thead tr th:first-child,
