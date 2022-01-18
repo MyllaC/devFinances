@@ -15,31 +15,24 @@ const Modal = {
 }
 
 /* VALORES CADASTRADOS DE ENTRADA E SAÍDA, vão ficar em uma local storage */
+const Storage = {
+  //Pegar as informações
+  get() {
+    //transformar a string em um array
+    return JSON.parse(localStorage.getItem('dev.finances:transactions')) || []
+  },
+  //Setar, guardar as informações
+  set(transactions) {
+    localStorage.setItem(
+      'dev.finances:transactions',
+      JSON.stringify(transactions)
+    ) //nome para identificar meu local storage e depois vem o valor que eu vou guardar (sempre vem em string). A função JSON.stringify vai transformar um array em uma string
+  }
+}
 
 /* SOMA DAS ENTRADAS, SAÍDAS E TOTAL */
 const Transaction = {
-  all: [
-    {
-      description: 'Luz',
-      amount: -50001, //depois vamos formatar esse valor para ele ficar 500 reais
-      date: '23/01/2021'
-    },
-    {
-      description: 'Website',
-      amount: 500000, //depois vamos formatar esse valor para ele ficar 500 reais
-      date: '23/01/2021'
-    },
-    {
-      description: 'Internet',
-      amount: -20012, //depois vamos formatar esse valor para ele ficar 500 reais
-      date: '23/01/2021'
-    },
-    {
-      description: 'App',
-      amount: 200000, //depois vamos formatar esse valor para ele ficar 500 reais
-      date: '23/01/2021'
-    }
-  ],
+  all: Storage.get(),
 
   add(transaction) {
     Transaction.all.push(transaction)
@@ -228,6 +221,8 @@ const Form = {
   }
 }
 
+/* PARA INICIAR O APP */
+
 const App = {
   init() {
     /* REPETIÇÃO PARA PEGAR CADA OBJETO DO MEU ARRAY */
@@ -236,6 +231,8 @@ const App = {
     })
 
     DOM.updateBalance()
+
+    Storage.set(Transaction.all)
   },
   reload() {
     DOM.clearTransactions()
