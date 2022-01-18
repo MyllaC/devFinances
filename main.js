@@ -129,6 +129,16 @@ const DOM = {
 
 /* CONVERSOR DO AMOUNT PARA MOEDA */
 const Utils = {
+  formatAmount(value) {
+    value = Number(value.replace(/\,\./g, '')) * 100
+    return value
+  },
+
+  formatDate(date) {
+    const splittedDate = date.split('-')
+    return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
+  },
+
   formatCurrency(value) {
     const signal = Number(value) < 0 ? '-' : ''
 
@@ -145,6 +155,75 @@ const Utils = {
     })
 
     return signal + value
+  }
+}
+
+/* FORMULARIO */
+const Form = {
+  description: document.querySelector('input#description'),
+  amount: document.querySelector('input#amount'),
+  date: document.querySelector('input#date'),
+
+  getValues() {
+    return {
+      description: Form.description.value,
+      amount: Form.amount.value,
+      date: Form.date.value
+    }
+  },
+
+  validateFields() {
+    const { description, amount, date } = Form.getValues()
+    if (
+      description.trim() === '' ||
+      amount.trim() === '' ||
+      date.trim() === ''
+    ) {
+      // o trim serve para fazer uma limpeza de espaços vazios de sua string, assim eu estou verificarndo se o description ou o amount ou o date estão vazios, se um deles estiver vazio:
+      throw new Error('Por favor, preencha todos os campos')
+    }
+  },
+
+  formatValues() {
+    let { description, amount, date } = Form.getValues()
+    amount = Utils.formatAmount(amount)
+
+    date = Utils.formatDate(date)
+
+    return {
+      description,
+      amount,
+      date
+    }
+  },
+
+  clearFields() {
+    Form.description.value = ''
+    Form.amount.value = ''
+    Form.date.value = ''
+  },
+
+  submit(event) {
+    event.preventDefault() // Não fazer o comportamento padrão que é o de enviaar o formulário com um monte de informaçãoes
+
+    try {
+      //verificar se todas as informações foram preenchidas
+      Form.validateFields()
+
+      // formatar o dados para Salvar
+      const transaction = Form.formatValues()
+
+      //Salvar
+      Transaction.add(transaction)
+
+      //Apaguar os dados do formulário para receber novas informações
+      Form.clearFields()
+
+      //fechar o modal
+      Modal.close()
+    } catch (error) {
+      alert(error.message)
+    }
   }
 }
 
