@@ -124,9 +124,10 @@ const DOM = {
 /* CONVERSOR DO AMOUNT PARA MOEDA */
 const Utils = {
   formatAmount(value) {
-    value = Number(value.replace(/\,\./g, '')) * 100
-    return value
+    value = value * 100
+    return Math.round(value)
   },
+  /* o input [type = number] já dpa pra gente o campo em formato de número */
 
   formatDate(date) {
     const splittedDate = date.split('-')
