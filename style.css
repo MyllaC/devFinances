@@ -275,13 +275,7 @@ input {
   width: 48%;
 }
 
-/* ======== FOOTER ========= */
-footer {
-  text-align: center;
-  padding: 4rem 0 2rem;
-  color: var(--dark-blue);
-  opacity: 0.6;
-}
+
 
 /* ======== RESPONSIVE ========= */
 /* qd o min do width for de 800px vai ser adicionado a sequencia de css que está dentro das chaves */
